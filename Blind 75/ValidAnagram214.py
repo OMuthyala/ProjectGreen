@@ -31,13 +31,22 @@ class Solution:
 # 
 
 # More optimal solution: 
-# Time complexity: 
-#   Why? 
-# Space complexity: 
-#   Why? 
+# Time complexity: O(n)
+#   Why? We iterate the list once to create the set, then loop through at most all of the characters again in the set
+# Space complexity: O(n)
+#   Why? At most we create the set of unique characters in s which might include every character in s
 # Method:
 
-
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        if len(s) != len(t):
+            return False
+        unique = set(s)
+        for i in unique:
+            if s.count(i) != t.count(i):
+                return False
+        
+        return True
     
-# Reasoning: 
-# 
+# Reasoning: We check for length mismatch, then we find the set of unique characters in s. If the count of these unique characters
+#   is equal to the number of the same character in t then we know this is an anagram
